@@ -1,7 +1,6 @@
 <?php
     include('connection.php');
     include('sessionManager.php');
-    //$_SESSION['dept']='information_technology';
     $dept=$_SESSION['dept'];
     if($_SESSION['position']=='hod'){
         $sql="SELECT * FROM leaveapplications WHERE dept ='$dept' and notify=0";
