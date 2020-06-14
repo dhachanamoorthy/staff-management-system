@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
 </head>
 
-<body onload="$('.loader').removeClass('is-active')">
+<body onload="$('.loader').removeClass('is-active');availableLeaves()">
     <div class="loader loader-border is-active" data-text="Loading..."></div>
     <div class="dashboard-main-wrapper">
         <?php

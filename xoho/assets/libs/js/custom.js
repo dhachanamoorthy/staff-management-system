@@ -608,14 +608,135 @@ function getDashBoardData(){
         type: "POST",
         encode:true,  
         dataType:"json",
-        encode:true,
-        success:function(data){  
+        success:function(data){      
             $(".cl1").html(data.casualLeaves);
             $('.cl2').html(data.compensationLeaves);
             $('.vl').html(data.vacationLeaves);
             $('.pl').html(data.permissions);
             $('.od').html(data.onduty);
             $('.el').html(data.emergencyLeaves);
+         },
+         error:function(){
+            $('.loader').attr('data-text','No Internet Connectivity');
+            var a=setInterval(function(){
+                $('.loader').removeClass('is-active');
+                clearInterval(a);
+            },1500);
          }
     });
+}
+function availableLeaves(){
+    var type=$("#type").val();
+    
+    if(type=='casual leave'){
+        $.ajax({
+            url: "php/dashboardData.php",
+            type: "POST",
+            encode:true,  
+            dataType:"json",
+            success:function(data){  
+                $(".availability").html("Available Casual Leave(s)-"+data.casualLeaves);
+             },
+             error:function(){
+                $('.loader').attr('data-text','No Internet Connectivity');
+                var a=setInterval(function(){
+                    $('.loader').removeClass('is-active');
+                    clearInterval(a);
+                },1500);
+             }
+        });
+    }
+    else if(type=='permissions'){
+        $.ajax({
+            url: "php/dashboardData.php",
+            type: "POST",
+            encode:true,  
+            dataType:"json",
+            beforeSend:function(){$('.loader').addClass('is-active')},
+            success:function(data){  
+                $('.loader').removeClass('is-active');
+                $(".availability").html("Available Permissions(s)-"+data.permissions);
+             },
+             error:function(){
+                $('.loader').attr('data-text','No Internet Connectivity');
+                var a=setInterval(function(){
+                    $('.loader').removeClass('is-active');
+                    clearInterval(a);
+                },1500);
+             }
+        }); 
+    }
+    else if(type=='compensation leave'){
+        $.ajax({
+            url: "php/dashboardData.php",
+            type: "POST",
+            encode:true,  
+            dataType:"json",
+            beforeSend:function(){$('.loader').addClass('is-active')},
+            success:function(data){  
+                $('.loader').removeClass('is-active');
+                $(".availability").html("Available Compensation Leaves(s)-"+data.compensationLeaves);
+             },
+             error:function(){
+                $('.loader').attr('data-text','No Internet Connectivity');
+                var a=setInterval(function(){
+                    $('.loader').removeClass('is-active');
+                    clearInterval(a);
+                },1500);
+             }
+        });   
+    }
+    else if(type=='vacation leave'){
+        $.ajax({
+            url: "php/dashboardData.php",
+            type: "POST",
+            encode:true,  
+            dataType:"json",
+            beforeSend:function(){$('.loader').addClass('is-active')},
+            success:function(data){  
+                $('.loader').removeClass('is-active');
+                $(".availability").html("Available Vacation Leave(s)-"+data.vacationLeaves);
+             }
+        });
+    }
+    else if(type=='onduty'){
+        $.ajax({
+            url: "php/dashboardData.php",
+            type: "POST",
+            encode:true,  
+            dataType:"json",
+            beforeSend:function(){$('.loader').addClass('is-active')},
+            success:function(data){  
+                $('.loader').removeClass('is-active');
+                $(".availability").html("Available Onduty(s)-"+data.onduty);
+             },
+             error:function(){
+                $('.loader').attr('data-text','No Internet Connectivity');
+                var a=setInterval(function(){
+                    $('.loader').removeClass('is-active');
+                    clearInterval(a);
+                },1500);
+             }
+        });  
+    }
+    else if(type=='emergency leave'){
+        $.ajax({
+            url: "php/dashboardData.php",
+            type: "POST",
+            encode:true,  
+            dataType:"json",
+            beforeSend:function(){$('.loader').addClass('is-active')},
+            success:function(data){  
+                $('.loader').removeClass('is-active');
+                $(".availability").html("Available Emergency Leave(s)-"+data.casualLeaves);
+             },
+             error:function(){
+                $('.loader').attr('data-text','No Internet Connectivity');
+                var a=setInterval(function(){
+                    $('.loader').removeClass('is-active');
+                    clearInterval(a);
+                },1500);
+             }
+        });
+    }
 }

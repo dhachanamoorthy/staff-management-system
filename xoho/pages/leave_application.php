@@ -23,19 +23,20 @@
                     <div id="basicform" data-parsley-validate="">
                         <div class="form-group row" >
                             <div class="col-sm-6">
+                                <label for="inputUserName">Type of Leave</label>
+                                 <select class="form-control" id="type" onchange="availableLeaves()">
+                                    <option value="casual leave">Casual Leave</option>
+                                    <option value="compensation leave">Compensation Leave</option>
+                                    <option value="onduty">On Duty</option>
+                                    <option value="emergency leave">Emergency Leave</option>
+                                    <option value="vacation leave">Vacation Leave</option>
+                                    <option value="permissions">Permissions</option>
+                                </select>
+                                <label class="availability" style="color:green">Available</label>
+                            </div>
+                            <div class="col-sm-6">
                                 <label for="inputUserName">Number of Days</label>
                                 <input id="inputUserName" type="number" min="0" name="name" id="no_of_days" required="" placeholder="" autocomplete="off" class="form-control">
-                            </div>
-                             <div class="col-sm-6">
-                                <label for="inputUserName">Type of Leave</label>
-                                 <select class="form-control" id="type">
-                                    <option>Casual Leave</option>
-                                    <option>Working Holiday</option>
-                                    <option>On Duty</option>
-                                    <option>Emergency Leave</option>
-                                    <option>Vacation Leave</option>
-                                    <option>Permissions</option>
-                                </select>
                             </div>
                         </div>
                          <div class="form-group row" >
