@@ -31,7 +31,7 @@
                         <div class="card-body">
                             <h5 class="text-muted">Casual Leave</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1">0</h1>
+                                <h1 class="mb-1 cl1">0</h1>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <h5 class="text-muted">On Duty</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1">0</h1>
+                                <h1 class="mb-1 od">0</h1>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="card-body">
                             <h5 class="text-muted">Componsention Leaves</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1">0</h1>
+                                <h1 class="mb-1 cl2">0</h1>
                             </div>
                             <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
                                 <span>N/A</span>
@@ -64,7 +64,7 @@
                         <div class="card-body">
                             <h5 class="text-muted">Permission Leaves</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1">0</h1>
+                                <h1 class="mb-1 pl">0</h1>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="card-body">
                             <h5 class="text-muted">Vacation Leaves</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1">0</h1>
+                                <h1 class="mb-1 vl">0</h1>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="card-body">
                             <h5 class="text-muted">Emergency Leaves</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1">0</h1>
+                                <h1 class="mb-1 el">0</h1>
                             </div>
                         </div>
                     </div>

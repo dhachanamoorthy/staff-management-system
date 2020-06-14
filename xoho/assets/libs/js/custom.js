@@ -602,3 +602,20 @@ function getApprovalNoti(){
 setInterval(function(){
     notification()
 }, 5000);
+function getDashBoardData(){
+    $.ajax({
+        url: "php/dashboardData.php",
+        type: "POST",
+        encode:true,  
+        dataType:"json",
+        encode:true,
+        success:function(data){  
+            $(".cl1").html(data.casualLeaves);
+            $('.cl2').html(data.compensationLeaves);
+            $('.vl').html(data.vacationLeaves);
+            $('.pl').html(data.permissions);
+            $('.od').html(data.onduty);
+            $('.el').html(data.emergencyLeaves);
+         }
+    });
+}

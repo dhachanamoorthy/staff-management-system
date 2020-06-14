@@ -8,9 +8,9 @@
     $CasualLeave=$row['CasualLeave'];
     $OnDuty=$row['OnDuty'];
     $compensationLeaves=$row['CompensationLeaves'];
-    $permissions=$row['permissions'];
-    $vl=$row['VL'];
-    $emergencyLeaves=$row['emergencyLeaves'];
-    $array = array('casual leaves' => $CasualLeave,'onduty' => $OnDuty,'compensationLeaves'=>$compensationLeaves,'permissions'=>$permissions,'vl'=>$vl,'emergencyLeaves'=>$emergencyLeaves );
+    $permissions=$row['Permissions'];
+    $vl=$row['VacationLeaves'];
+    $emergencyLeaves=$row['EmergencyLeaves'];
+    $array = array('casualLeaves' => $CasualLeave,'onduty' => $OnDuty,'compensationLeaves'=>$compensationLeaves,'permissions'=>$permissions,'vacationLeaves'=>$vl,'emergencyLeaves'=>$emergencyLeaves );
     echo json_encode($array);
 ?>
