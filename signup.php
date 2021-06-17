@@ -1,5 +1,4 @@
 <?php
-  include('php/sessionManager.php');
   include('php/connection.php');
   $user=$_SESSION['username'];
   $sql="SELECT * FROM employee WHERE email='$user'";
@@ -9,7 +8,7 @@
 ?>
 <!doctype html>
 <html lang="en">
- 
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

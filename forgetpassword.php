@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>XOHO</title>
+    <title>STAFF MANAGEMENT SYSTEM</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -35,7 +35,7 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card">
-            <div class="card-header text-center"><a href="../index.html"><!-- <img class="logo-img" src="../assets/images/logo.png" alt="logo"> -->XOHO</a><span class="splash-description">Please enter your user information.</span></div>
+            <div class="card-header text-center"><a href="../index.html"><!-- <img class="logo-img" src="../assets/images/logo.png" alt="logo"> -->STAFF MANAGEMENT SYSTEM</a><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
                     <p>Don't worry, we'll send you an email to reset your password.</p>
                     <div class="form-group">

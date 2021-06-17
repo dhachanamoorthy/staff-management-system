@@ -7,11 +7,11 @@ function login(){
         type: "POST",
         dataType:"json",
         encode:true,
-        data:datastring,   
+        data:datastring,
         cache: false,
         beforeSend:function(){$('.loader').addClass('is-active')},
         success: function(data)
-        {   
+        {
             if(data.type == '201')
             {
                  document.getElementById("ack").innerHTML=data.text;
@@ -26,10 +26,10 @@ function login(){
                 document.getElementById("ack").innerHTML=data.text;
             }
         },
-        error: function() 
+        error: function()
         {
             document.getElementById("ack").innerHTML="*please check your connection and try again";
-        }           
+        }
  });
 }
 function logout(){
@@ -37,16 +37,16 @@ function logout(){
 		url: "php/logout.php",
         type: "POST",
         dataType:"json",
-        encode:true,  
+        encode:true,
         cache: false,
         beforeSend:function(){
         	$("#loader-1").show();
         },
         success: function(data)
-        {   
+        {
             if(data.type='success')
                 window.location='login.php';
-        }          
+        }
     });
 }
 function updatePassword(){
@@ -70,10 +70,10 @@ function updatePassword(){
             type: "POST",
             data:current,
             dataType:"json",
-            encode:true,  
+            encode:true,
             cache: false,
             success: function(data)
-            {   
+            {
                 if(data.type=='success'){
                     $("#ack").show();
                     $("#ack").removeClass('alert-danger');
@@ -83,7 +83,7 @@ function updatePassword(){
                         $("#changepassword").modal('hide');
                         clearInterval(a);
                             },1500);
-                    
+
                 }
                 else{
                     $("#ack").show();
@@ -91,7 +91,7 @@ function updatePassword(){
                     $("#ack").addClass('alert-danger');
                     $('#ack-data').html(data.text);
                     $("#content-loader").removeClass('is-active');
-                }          
+                }
             }
         });
     }
@@ -113,10 +113,10 @@ function createUser(){
             type: "POST",
             data:datastring,
             dataType:"json",
-            encode:true,  
+            encode:true,
             cache: false,
             success: function(data)
-            {   
+            {
                 if(data.type=='success'){
                     $("#ack").show();
                     $("#ack").addClass('alert-success');
@@ -159,13 +159,13 @@ function updateAccount(){
             type: "POST",
             data:datastring,
             dataType:"json",
-            encode:true,  
+            encode:true,
             cache: false,
             beforeSend:function(){
                 $("#loader").addClass('is-active');
             },
             success: function(data)
-            {   
+            {
                 if(data.type=='success'){
                     $("#ack").show();
                     $("#ack").addClass('alert-success');
@@ -181,7 +181,7 @@ function updateAccount(){
                     $("#content-loader").removeClass('is-active');
                     $("#ack").fadeOut();
                     $("#ack").removeClass('alert-danger');
-                }          
+                }
             }
         });
     }
@@ -193,7 +193,7 @@ $('#file').change(function(){
     var img=document.getElementById("file").files[0];
     var form=new FormData();
     form.append('file',img);
-      //e.preventDefault(); 
+      //e.preventDefault();
     $.ajax({
         url: "php/profilepic.php",
         type: "POST",
@@ -209,11 +209,11 @@ $('#file').change(function(){
             refresh(node1,data.img);
             refresh(node2,data.img);
         },
-        error: function(e,x,y) 
+        error: function(e,x,y)
         {
             alert(e+" ."+y+"."+x);
-        }   
-    });  
+        }
+    });
 });
 function refresh(node,imagename){
     var times = 10000; // gap in Milli Seconds;
@@ -221,7 +221,7 @@ function refresh(node,imagename){
         var address=imagename;
         if(node.src.indexOf('?')>-1)
         address = node.src.split('?')[0];
-        else 
+        else
         address = node.src;
         node.src = address+"?time="+new Date().getTime();
         setTimeout(startRefresh,times);
@@ -235,13 +235,13 @@ function profileView(td){
         url: "php/profileView.php",
         type: "POST",
         data:'emp_id='+emp_id,
-        encode:true,  
+        encode:true,
         cache: false,
         beforeSend:function(){
             $("#loader").addClass('is-active');
         },
         success: function(data)
-        {   
+        {
             $('#iframe').html(data);
         }
     });
@@ -253,17 +253,17 @@ function resetPassword(){
         type: "POST",
         data:'email='+email,
         dataType:"json",
-        encode:true,  
+        encode:true,
         cache: false,
         beforeSend:function(){
          $(".loader").addClass('is-active');
          // $('.loader').attr('data-text','Please wait while we sent new password yoor email');
         },
         success: function(data)
-        {   
+        {
             if(data.type=='success'){
                 $('.loader').attr('data-text',data.text);
-                var delay = 1000; 
+                var delay = 1000;
                 var i=setTimeout(function(){window.location = 'login.php';clearInterval(i); }, delay);
             }
             else if(data.type=='error'){
@@ -335,30 +335,30 @@ function addcertifiacte(){
         url:"php/track_leave.php",
             type: "POST",
             datatype:"html",
-            data:datastring, 
+            data:datastring,
             cache: false,
             beforeSend: function() {
               $("#loading-image").show();
            },
             success: function(data)
-            { 
+            {
                 $('#tbody').empty();
                 $("#loading-image").hide();
                 data = JSON.parse(data);
                  data.forEach(getData);
                  function getData(record){
                     if(record.name!='nill')
-                        $('<tr><td>'+record.name+'</td><td>'+record.dept+'</td><td>'+record.date+'</td><td>'+record.day+'</td></tr>').prependTo($('#tbody')); 
+                        $('<tr><td>'+record.name+'</td><td>'+record.dept+'</td><td>'+record.date+'</td><td>'+record.day+'</td></tr>').prependTo($('#tbody'));
                     else{
                         $('<tr><td colspan=4 class="text-center">No Records Found</td></tr>').prependTo($('#tbody'));
-                    }         
+                    }
                 }
             },
-            error: function(requestObject, error, errorThrown) 
+            error: function(requestObject, error, errorThrown)
             {
                 alert(error);
                 document.getElementById("rack").innerHTML="*please check your connection and try again";
-            }           
+            }
      });
        return from+'---'+to;
 }
@@ -371,13 +371,13 @@ function addcertifiacte(){
         url:"php/late_entry.php",
             type: "POST",
             datatype:"html",
-            data:datastring, 
+            data:datastring,
             cache: false,
             beforeSend: function() {
               $("#loading-image").show();
            },
             success: function(data)
-            { 
+            {
                 $('#tbody').empty();
                 $("#loading-image").hide();
                 data = JSON.parse(data);
@@ -387,14 +387,14 @@ function addcertifiacte(){
                         $('<tr><td>'+record.name+'</td><td>'+record.dept+'</td><td>'+record.intime+'</td><td>'+record.date+'</td><td>'+record.day+'</td></tr>').prependTo($('#tbody'));
                     else{
                         $('<tr><td colspan=5 class="text-center">No Record(s) Found</td></tr>').prependTo($('#tbody'));
-                    }          
+                    }
                 }
             },
-            error: function(requestObject, error, errorThrown) 
+            error: function(requestObject, error, errorThrown)
             {
                 alert(error);
                 document.getElementById("rack").innerHTML="*please check your connection and try again";
-            }           
+            }
      });
        return from+'---'+to;
 }
@@ -420,7 +420,7 @@ function exportToExcel(){
             });
         }
     }, delayInMilliseconds);
-    
+
 }
 function exportToExcel2(){
     fr=lateEntry();
@@ -466,7 +466,7 @@ function pagination(){
         if(i+1 <= req_num_row){
             $tr.eq(i).show();
         }
-    
+
     });
     jQuery('#pagination a').click(function(e){
         e.preventDefault();
@@ -475,11 +475,11 @@ function pagination(){
         var temp=page-1;
         var start=temp*req_num_row;
         //alert(start);
-        
+
         for(var i=0; i< req_num_row; i++){
-            
+
             $tr.eq(start+i).show();
-        
+
         }
     });
 }
@@ -504,11 +504,11 @@ function applyLeave(){
             type: "POST",
             dataType:"json",
             encode:true,
-            data:datastring,   
+            data:datastring,
             cache: false,
             beforeSend:function(){$('.loader').addClass('is-active')},
             success: function(data)
-            {   
+            {
                 if(data.type == 'success')
                 {
                     $('.loader').removeClass('is-active');
@@ -524,13 +524,13 @@ function applyLeave(){
 
                 }
             },
-            error: function() 
+            error: function()
             {
                 $('.loader').removeClass('is-active');
                  $("#alert").modal("toggle");
                     $("#ack").addClass("text-danger");
                    $("#ack").html("Please check your Internet Connection");
-            }           
+            }
         });
     }
 }
@@ -553,62 +553,62 @@ function approve(r){
     $.ajax({
         url: "php/approvals.php",
         type: "POST",
-        data:str, 
-        encode:true,  
+        data:str,
+        encode:true,
         dataType:"json",
         encode:true,
-        success:function(data){  
+        success:function(data){
              if(data.type=='success'){
                 $('#ack').empty();
                 $('#ack').append('<span><i class="mdi-check-circle-outline"></i>Approved</span>');
              }
          }
-    })  
+    })
 }
 function reject(r){
      str='value=2&leave='+r;
     $.ajax({
         url: "php/approvals.php",
         type: "POST",
-        data:str, 
-        encode:true,  
-        dataType:"json",
+        data:str,
         encode:true,
-        success:function(data){  
-             
-         }
-    })  
-}
-function notification(){
-    getApprovalNoti();
-}
-function getApprovalNoti(){
-    $.ajax({
-        url: "php/notification.php",
-        type: "POST",
         dataType:"json",
         encode:true,
         success:function(data){
-            if(data.approvals>0){
-                if(!$("#approval-indicator").length)
-                    $("#approval-link").append(' <span class="mr-1"><span class="badge-dot badge-primary" id="approval-indicator">'+data.approvals+'</span></span>');
-            }
-            else{
-                $("#approval-link").empty();
-            }
-        }
+
+         }
     })
 }
-setInterval(function(){
-    notification()
-}, 5000);
+// function notification(){
+//     getApprovalNoti();
+// }
+// function getApprovalNoti(){
+//     $.ajax({
+//         url: "php/notification.php",
+//         type: "POST",
+//         dataType:"json",
+//         encode:true,
+//         success:function(data){
+//             if(data.approvals>0){
+//                 if(!$("#approval-indicator").length)
+//                     $("#approval-link").append(' <span class="mr-1"><span class="badge-dot badge-primary" id="approval-indicator">'+data.approvals+'</span></span>');
+//             }
+//             else{
+//                 $("#approval-link").empty();
+//             }
+//         }
+//     })
+// }
+// setInterval(function(){
+//     notification()
+// }, 5000);
 function getDashBoardData(){
     $.ajax({
         url: "php/dashboardData.php",
         type: "POST",
-        encode:true,  
+        encode:true,
         dataType:"json",
-        success:function(data){      
+        success:function(data){
             $(".cl1").html(data.casualLeaves);
             $('.cl2').html(data.compensationLeaves);
             $('.vl').html(data.vacationLeaves);
@@ -627,14 +627,14 @@ function getDashBoardData(){
 }
 function availableLeaves(){
     var type=$("#type").val();
-    
+
     if(type=='casual leave'){
         $.ajax({
             url: "php/dashboardData.php",
             type: "POST",
-            encode:true,  
+            encode:true,
             dataType:"json",
-            success:function(data){  
+            success:function(data){
                 $(".availability").html("Available Casual Leave(s)-"+data.casualLeaves);
              },
              error:function(){
@@ -650,10 +650,10 @@ function availableLeaves(){
         $.ajax({
             url: "php/dashboardData.php",
             type: "POST",
-            encode:true,  
+            encode:true,
             dataType:"json",
             beforeSend:function(){$('.loader').addClass('is-active')},
-            success:function(data){  
+            success:function(data){
                 $('.loader').removeClass('is-active');
                 $(".availability").html("Available Permissions(s)-"+data.permissions);
              },
@@ -664,16 +664,16 @@ function availableLeaves(){
                     clearInterval(a);
                 },1500);
              }
-        }); 
+        });
     }
     else if(type=='compensation leave'){
         $.ajax({
             url: "php/dashboardData.php",
             type: "POST",
-            encode:true,  
+            encode:true,
             dataType:"json",
             beforeSend:function(){$('.loader').addClass('is-active')},
-            success:function(data){  
+            success:function(data){
                 $('.loader').removeClass('is-active');
                 $(".availability").html("Available Compensation Leaves(s)-"+data.compensationLeaves);
              },
@@ -684,16 +684,16 @@ function availableLeaves(){
                     clearInterval(a);
                 },1500);
              }
-        });   
+        });
     }
     else if(type=='vacation leave'){
         $.ajax({
             url: "php/dashboardData.php",
             type: "POST",
-            encode:true,  
+            encode:true,
             dataType:"json",
             beforeSend:function(){$('.loader').addClass('is-active')},
-            success:function(data){  
+            success:function(data){
                 $('.loader').removeClass('is-active');
                 $(".availability").html("Available Vacation Leave(s)-"+data.vacationLeaves);
              }
@@ -703,10 +703,10 @@ function availableLeaves(){
         $.ajax({
             url: "php/dashboardData.php",
             type: "POST",
-            encode:true,  
+            encode:true,
             dataType:"json",
             beforeSend:function(){$('.loader').addClass('is-active')},
-            success:function(data){  
+            success:function(data){
                 $('.loader').removeClass('is-active');
                 $(".availability").html("Available Onduty(s)-"+data.onduty);
              },
@@ -717,16 +717,16 @@ function availableLeaves(){
                     clearInterval(a);
                 },1500);
              }
-        });  
+        });
     }
     else if(type=='emergency leave'){
         $.ajax({
             url: "php/dashboardData.php",
             type: "POST",
-            encode:true,  
+            encode:true,
             dataType:"json",
             beforeSend:function(){$('.loader').addClass('is-active')},
-            success:function(data){  
+            success:function(data){
                 $('.loader').removeClass('is-active');
                 $(".availability").html("Available Emergency Leave(s)-"+data.casualLeaves);
              },

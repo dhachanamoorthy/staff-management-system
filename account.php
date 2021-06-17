@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <title>XOHO | Account</title>
+    <title>STAFF MANAGEMENT SYSTEM | Account</title>
 </head>
 
 <body onload="$('.loader').removeClass('is-active')">

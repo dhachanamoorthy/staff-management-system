@@ -14,7 +14,7 @@
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <title>XOHO | Approval</title>
+    <title>STAFF MANAGEMENT SYSTEM | Approval</title>
 </head>
 
 <body onload="approvals();$('.loader').removeClass('is-active');">

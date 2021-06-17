@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
- 
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>XOHO-Login</title>
+    <title>STAFF MANAGEMENT SYSTEM-Login</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -32,7 +32,7 @@
     <div class="loader loader-border is-active" data-text="Loading..."></div>
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><!-- <img class="logo-img" src="../assets/images/logo.png" alt="logo"> -->XOHO</a><span class="splash-description text-danger" id="ack"></span></div>
+            <div class="card-header text-center"><a href="../index.html"><!-- <img class="logo-img" src="../assets/images/logo.png" alt="logo"> -->STAFF MANAGEMENT SYSTEM</a><span class="splash-description text-danger" id="ack"></span></div>
             <div class="card-body">
                 <div>
                     <div class="form-group">
@@ -55,5 +55,5 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="assets/libs/js/custom.js"></script>
 </body>
- 
+
 </html>

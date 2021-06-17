@@ -10,7 +10,7 @@
 ?>
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="index.html">XOHO</a>
+        <a class="navbar-brand" href="index.html">STAFF MANAGEMENT SYSTEM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-th-large"></i></span>
         </button>
